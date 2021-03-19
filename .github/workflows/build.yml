@@ -34,7 +34,7 @@ jobs:
         run: |
           npm ci
           npm test
-          npm run semantic-release
+          #npm run semantic-release
         env:
           CI: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -10,26 +10,27 @@ export async function updateVersion(
   pluginConfig: any
 ): Promise<void> {
   let prop = new Map<string, string>();
+  let versionName = 'version';
+  let propertyFilePath = 'gradle.properties'
+
   if (pluginConfig !== undefined) {
-    const versionName = pluginConfig.versionName || 'version';
+    versionName = pluginConfig.versionName || versionName;
+     propertyFilePath = pluginConfig.filePath || propertyFilePath
+
     const versionCode = pluginConfig.versionCode;
-    const propertyFilePath = pluginConfig.filePath || 'gradle.properties'
-    const path = join(cwd, propertyFilePath);
-
-    if (existsSync(path)) {
-      prop = await parseFile(path);
-    }
-    prop.set(versionName, version);
-
-
     let currentVersionCode: any = prop.get(versionCode);
     if (currentVersionCode !== undefined) {
       const newVersionCode = currentVersionCode + 1;
       prop.set(versionCode, newVersionCode);
     }
-
-  return write(prop, path);
   }
+
+  const path = join(cwd, propertyFilePath);
+  if (existsSync(path)) {
+    prop = await parseFile(path);
+  }
+  prop.set(versionName, version);
+  return write(prop, path);
 }
 
 export default async function prepare(pluginConfig: object, context: IContext) {
