@@ -14,7 +14,11 @@ describe("Test for prepare step", () => {
   });
   it("updateVersion() will update version in gradle.properties", async () => {
     const gradleProject = join(cwd(), "test/project/with-properties-file");
-    await updateVersion(gradleProject, "2.3.4");
+    const properties = {
+      "filePath": "gradle.properties",
+      "versionName": "version"
+    }
+    await updateVersion(gradleProject, "2.3.4", properties);
     const path = join(gradleProject, "gradle.properties");
     return parseFile(path).then(updated => {
       expect(updated.get("version")).to.equal("2.3.4");
@@ -32,7 +36,11 @@ describe("Test for prepare step without gradle.properties", () => {
   });
   it("updateVersion() will create gradle.properties with specified version", async () => {
     const gradleProject = join(cwd(), "test/project/without-properties-file");
-    await updateVersion(gradleProject, "2.3.4");
+    const properties = {
+      "filePath": "gradle.properties",
+      "versionName": "version"
+    }
+    await updateVersion(gradleProject, "2.3.4", properties);
     const path = join(gradleProject, "gradle.properties");
     return parseFile(path).then(updated => {
       expect(updated.get("version")).to.equal("2.3.4");
