@@ -1,12 +1,12 @@
 {
-  "name": "gradle-semantic-release-plugin",
+  "name": "gradle-semantic-release-plugin-goldy1992",
   "version": "1.4.16",
-  "description": "Automated release management for Gradle project",
+  "description": "Automated release management for Gradle project forked from https://github.com/goldy1992/gradle-semantic-release-plugin.git",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/KengoTODA/gradle-semantic-release-plugin.git"
+    "url": "https://github.com/goldy1992/gradle-semantic-release-plugin.git"
   },
   "keywords": [
     "semantic-release",
@@ -17,7 +17,7 @@
     "LICENSE",
     "lib"
   ],
-  "author": "Kengo TODA",
+  "author": "goldy1992",
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -33,12 +33,12 @@
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
-    "@types/chai": "^4.2.8",
+    "@types/chai": "^4.2.15",
     "@types/mocha": "^8.0.0",
     "@types/rimraf": "^3.0.0",
     "@types/signale": "^1.2.1",
     "@types/split2": "^2.1.6",
-    "chai": "^4.2.0",
+    "chai": "^4.3.4",
     "cross-env": "^7.0.0",
     "husky": "^6.0.0",
     "mocha": "^8.0.0",
@@ -49,7 +49,7 @@
     "semantic-release": "^17.0.1",
     "source-map-support": "^0.5.16",
     "ts-node": "^9.0.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.2.3"
   },
   "engines": {
     "node": ">=12.14"
